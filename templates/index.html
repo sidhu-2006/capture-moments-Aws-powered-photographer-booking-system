@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Book Photographer</title>
+</head>
+
+<body>
+
+<h1>Book a Photographer</h1>
+
+<form id="bookingForm">
+
+<label>Your Name</label><br>
+<input type="text" id="name" required>
+<br><br>
+
+<label>Email</label><br>
+<input type="email" id="email" required>
+<br><br>
+
+<label>Phone</label><br>
+<input type="text" id="phone" required>
+<br><br>
+
+<label>Location</label><br>
+<input type="text" id="location" required>
+<br><br>
+
+<button type="submit">Book Now</button>
+
+</form>
+
+<br>
+
+<a href="/photographers">View Photographers</a>
+<a href="/bookings">View Bookings</a>
+
+<script>
+
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+
+e.preventDefault()
+
+fetch("/book",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+name:document.getElementById("name").value,
+email:document.getElementById("email").value,
+phone:document.getElementById("phone").value,
+location:document.getElementById("location").value
+})
+})
+.then(res=>res.json())
+.then(data=>{
+alert(data.message)
+})
+
+})
+
+</script>
+
+</body>
+
+</html>

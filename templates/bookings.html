@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>All Bookings</title>
+</head>
+
+<body>
+
+<h1>Photographer Bookings</h1>
+
+<a href="/">Home</a> |
+<a href="/photographers">Photographers</a> |
+<a href="/logout">Logout</a>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+
+<tr>
+<th>Photographer</th>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Location</th>
+</tr>
+
+{% for booking in bookings %}
+
+<tr>
+<td>{{ booking.photographer_name }}</td>
+<td>{{ booking.name }}</td>
+<td>{{ booking.email }}</td>
+<td>{{ booking.phone }}</td>
+<td>{{ booking.location }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">Back to Booking Page</a>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Book Photographer</title>
+</head>
+
+<body>
+
+<h2>Book Photographer</h2>
+
+<h3>{{ photographer.name }}</h3>
+
+<form id="bookingForm">
+
+<input type="hidden" id="photographer_id" value="{{ photographer.id }}">
+
+<label>Name</label><br>
+<input type="text" id="name" required><br><br>
+
+<label>Email</label><br>
+<input type="email" id="email" required><br><br>
+
+<label>Phone</label><br>
+<input type="text" id="phone" required><br><br>
+
+<label>Location</label><br>
+<input type="text" id="location" required><br><br>
+
+<button type="submit">Book Now</button>
+
+</form>
+
+<script>
+
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+fetch("/book", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        photographer_id: document.getElementById("photographer_id").value,
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        location: document.getElementById("location").value
+    })
+})
+.then(response => response.json())
+.then(data => {
+
+    alert(data.message);
+
+    window.location.href = "/bookings";
+
+})
+.catch(error => {
+    console.log("Error:", error);
+});
+
+});
+
+</script>
+
+</body>
+</html>

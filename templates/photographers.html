@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Photographers</title>
+</head>
+
+<body>
+
+<h1>Available Photographers</h1>
+
+<a href="/">Home</a> |
+<a href="/bookings">View Bookings</a> |
+<a href="/logout">Logout</a>
+
+<br><br>
+
+<a href="/add_photographer">Add Photographer</a>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+
+<tr>
+<th>Name</th>
+<th>Specialization</th>
+<th>Location</th>
+<th>Price</th>
+<th>Action</th>
+</tr>
+
+{% for photographer in photographers %}
+
+<tr>
+
+<td>{{ photographer.name }}</td>
+<td>{{ photographer.specialization }}</td>
+<td>{{ photographer.location }}</td>
+<td>{{ photographer.price }}</td>
+
+<td>
+<a href="/book_photographer?id={{ photographer.id }}">Book Photographer</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">Back to Home</a>
+
+</body>
+
+</html>
