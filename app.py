@@ -44,7 +44,7 @@ def login():
                 return render_template("login.html", error="User not found")
 
             if check_password_hash(user["password"], password):
-                session["user"] = user["username"]
+                session["user"] = user["username"]  # store username instead of email
                 return redirect(url_for("photographers"))
             else:
                 return render_template("login.html", error="Incorrect password")
@@ -84,7 +84,8 @@ def register():
                 }
             )
 
-            return redirect(url_for("login"))
+            session["user"] = username  # store username instead of email
+            return redirect("/photographers")
 
         except Exception as e:
             print("Register error:", e)

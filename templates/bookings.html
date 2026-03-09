@@ -1,48 +1,25 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-<title>All Bookings</title>
-</head>
+{% block content %}
 
-<body>
-
-<h1>Photographer Bookings</h1>
-
-<a href="/">Home</a> |
-<a href="/photographers">Photographers</a> |
-<a href="/logout">Logout</a>
-
-<br><br>
-
-<table border="1" cellpadding="10">
-
-<tr>
-<th>Photographer</th>
-<th>Name</th>
-<th>Email</th>
-<th>Phone</th>
-<th>Location</th>
-</tr>
+<h1>Your Bookings</h1>
 
 {% for booking in bookings %}
 
-<tr>
-<td>{{ booking.photographer_name }}</td>
-<td>{{ booking.name }}</td>
-<td>{{ booking.email }}</td>
-<td>{{ booking.phone }}</td>
-<td>{{ booking.location }}</td>
-</tr>
+<div class="card">
+
+<p><b>Photographer:</b> {{ booking.photographer_name }}</p>
+
+<p><b>Name:</b> {{ booking.name }}</p>
+
+<p><b>Email:</b> {{ booking.email }}</p>
+
+<p><b>Phone:</b> {{ booking.phone }}</p>
+
+<p><b>Location:</b> {{ booking.location }}</p>
+
+</div>
 
 {% endfor %}
 
-</table>
-
-<br>
-
-<a href="/">Back to Booking Page</a>
-
-</body>
-
-</html>
+{% endblock %}

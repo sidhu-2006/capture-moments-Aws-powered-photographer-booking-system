@@ -1,36 +1,47 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-<title>Register</title>
-</head>
+{% block content %}
 
-<body>
+<div class="card">
 
 <h2>Create Account</h2>
 
+{% if error %}
+<p style="color:red; font-weight:bold;">{{ error }}</p>
+{% endif %}
+
 <form method="POST">
 
-Username<br>
-<input type="text" name="username" required>
-<br><br>
+<input 
+type="text" 
+name="username" 
+placeholder="Enter your username"
+required
+>
 
-Email<br>
-<input type="email" name="email" required>
-<br><br>
+<input 
+type="email" 
+name="email" 
+placeholder="Enter your email"
+required
+>
 
-Password<br>
-<input type="password" name="password" required>
-<br><br>
+<input 
+type="password" 
+name="password" 
+placeholder="Create a password"
+required
+>
 
 <button type="submit">Register</button>
 
 </form>
 
-<br>
-
+<p style="margin-top:15px;">
+Already have an account? 
 <a href="/login">Login</a>
+</p>
 
-</body>
+</div>
 
-</html>
+{% endblock %}

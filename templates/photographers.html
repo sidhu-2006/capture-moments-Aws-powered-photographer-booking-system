@@ -1,57 +1,27 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-<title>Photographers</title>
-</head>
-
-<body>
+{% block content %}
 
 <h1>Available Photographers</h1>
 
-<a href="/">Home</a> |
-<a href="/bookings">View Bookings</a> |
-<a href="/logout">Logout</a>
+{% for p in photographers %}
 
-<br><br>
+<div class="card">
 
-<a href="/add_photographer">Add Photographer</a>
+<h2>{{ p.name }}</h2>
 
-<br><br>
+<p>📷 <b>Specialization:</b> {{ p.specialization }}</p>
 
-<table border="1" cellpadding="10">
+<p>📍 <b>Location:</b> {{ p.location }}</p>
 
-<tr>
-<th>Name</th>
-<th>Specialization</th>
-<th>Location</th>
-<th>Price</th>
-<th>Action</th>
-</tr>
+<p> <b>Price:</b> ₹{{ p.price }}</p>
 
-{% for photographer in photographers %}
+<a href="/book_photographer?id={{ p.id }}">
+<button>Book Photographer</button>
+</a>
 
-<tr>
-
-<td>{{ photographer.name }}</td>
-<td>{{ photographer.specialization }}</td>
-<td>{{ photographer.location }}</td>
-<td>{{ photographer.price }}</td>
-
-<td>
-<a href="/book_photographer?id={{ photographer.id }}">Book Photographer</a>
-</td>
-
-</tr>
+</div>
 
 {% endfor %}
 
-</table>
-
-<br>
-
-<a href="/">Back to Home</a>
-
-</body>
-
-</html>
+{% endblock %}

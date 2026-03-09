@@ -1,27 +1,107 @@
+/* BODY */
+
 body{
-font-family:Arial;
+margin:0;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 text-align:center;
-background:#f5f5f5;
+background-image:url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+color:white;
 }
 
-form{
-background:white;
-width:300px;
-margin:auto;
-padding:20px;
-box-shadow:0px 0px 10px gray;
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:rgba(0,0,0,0.7);
+box-shadow:0 4px 10px rgba(0,0,0,0.5);
 }
+
+.navbar h2{
+margin:0;
+}
+
+.nav-links a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.nav-links a:hover{
+color:#ffcc00;
+}
+
+/* MAIN CONTENT */
+
+.container{
+padding:40px;
+}
+
+/* FORM */
+
+form{
+background:rgba(0,0,0,0.6);
+width:320px;
+margin:auto;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* CARDS */
+
+.card{
+background:rgba(0,0,0,0.6);
+padding:25px;
+border-radius:10px;
+margin:20px auto;
+width:350px;
+box-shadow:0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* INPUT */
 
 input{
 display:block;
-width:90%;
+width:100%;
 padding:10px;
-margin:10px auto;
+margin-top:10px;
+margin-bottom:15px;
+border:none;
+border-radius:5px;
 }
 
+/* BUTTONS */
+
 button{
-padding:10px;
-background:red;
+padding:10px 20px;
+background:#ff9800;
 color:white;
 border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#ff5722;
+transform:scale(1.05);
+}
+
+/* LINKS */
+
+a{
+color:#ffcc00;
+text-decoration:none;
+}
+
+a:hover{
+text-decoration:underline;
 }

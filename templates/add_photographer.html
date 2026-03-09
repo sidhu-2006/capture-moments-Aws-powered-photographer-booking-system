@@ -1,42 +1,45 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-<title>Add Photographer</title>
-</head>
+{% block content %}
 
-<body>
+<div class="card">
 
-<h1>Add Photographer</h1>
-
-<a href="/">Home</a> |
-<a href="/photographers">View Photographers</a> |
-<a href="/logout">Logout</a>
-
-<br><br>
+<h2>Add Photographer</h2>
 
 <form method="POST">
 
-<label>Name:</label><br>
-<input type="text" name="name" required>
-<br><br>
+<input 
+type="text" 
+name="name" 
+placeholder="Photographer Name"
+required
+>
 
-<label>Specialization:</label><br>
-<input type="text" name="specialization" required>
-<br><br>
+<input 
+type="text" 
+name="specialization" 
+placeholder="Specialization (Wedding, Event, Portrait...)"
+required
+>
 
-<label>Location:</label><br>
-<input type="text" name="location" required>
-<br><br>
+<input 
+type="text" 
+name="location" 
+placeholder="Location"
+required
+>
 
-<label>Price:</label><br>
-<input type="text" name="price" required>
-<br><br>
+<input 
+type="text" 
+name="price" 
+placeholder="Price (₹)"
+required
+>
 
 <button type="submit">Add Photographer</button>
 
 </form>
 
-</body>
+</div>
 
-</html>
+{% endblock %}
